@@ -8,35 +8,32 @@
 5. ~~~~~~~~~~~~~~~~~~~~~~~~~~ 작으면 중간 위치 왼쪽을 이분탐색 재귀호출
 '''
 
-def recur_bsearch(a,x):
+def recur_bsearch(a,x,start,end):
+    if start > end:
+        return -1
+    
+    mid = (start+end)//2
+    if x == a[mid] :
+        return mid
+    elif x > a[mid] :
+        start = mid+1
+        return recur_bsearch(a,x,start,end)
+    else :
+        end = mid-1
+        return recur_bsearch(a,x,start,end)
+    return -1
+            
+def recur(a,x):
     start = 0
     end = len(a)-1
-    mid = (start+end)//2
-    print(a[mid])
-    if len(a) <= 1 :
-        return a
-    else :
-        if x > a[mid] :
-            start = mid+1
-            a = a[start:end+1]
-            print(a)
-            recur_bsearch(a,x)
-        elif x < a[mid] :
-            end = mid-1
-            a = a[start:end+1]
-            print(a)
-            recur_bsearch(a,x)
-        elif x == a[mid] :
-            print('here')
-            print(mid)
-            return
-            
-        
+    return recur_bsearch(a,x,start,end)
+    
+    
 
 
 d = [1,2,3,4,5,6,7,8,9,10]
-print(recur_bsearch(d,3))
-print(recur_bsearch(d,11))
+print(recur(d,3))
+print(recur(d,11))
 
 
     
