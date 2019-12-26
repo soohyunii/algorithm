@@ -17,11 +17,32 @@ inputArr = list(map(lambda x:int(x),inputArr))
 
 
 def myfunction(Array):
+    output = []
     for i,v in enumerate(Array):
         if i == 0:
             leftSum = 0
-            for i in Array
+            for x in range(i+1,len(Array),1):
+                leftSum += Array[x]
+            if leftSum == 0:
+                output.append(i)
+        elif i!=0 and i!= (len(Array)-1):
+            leftSum = 0
+            rightSum = 0
+            for x in range(0,i,1):
+                leftSum += Array[x]
+            for x in range(i+1,len(Array),1):
+                rightSum += Array[x]
+            if leftSum == rightSum:
+                output.append(i)
         elif i == (len(Array)-1):
-            
+            rightSum = 0
+            for x in range(0,len(Array)-1,1):
+                rightSum += Array[x]
+            if rightSum == 0:
+                output.append(i)
+    return output
+
+
+print(myfunction(inputArr))
     
 
