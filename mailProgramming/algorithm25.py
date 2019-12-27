@@ -12,6 +12,7 @@ Input: [0, -3, 5, -4, -2, 3, 1, 0]
 Output: [0, 3, 7]
 '''
 
+
 inputArr = input("Input : ").split(",")
 inputArr = list(map(lambda x:int(x),inputArr))
 
