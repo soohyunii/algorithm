@@ -15,6 +15,15 @@ Output: [5, 6, -2, 3]
 
 def findMaxSum(Array):
     i = 0
+    maxsum = 0
+    tsum = 0
     while i<len(Array):
-        for x in range(i,len(Array)):
-            
+        for x in range(0,len(Array)):
+            for t in range(x,i):
+                tsum += Array[t]
+                if tsum > maxsum:
+                    maxsum = tsum
+        i=i+1
+    print(maxsum)
+
+findMaxSum([1,2,3,4,5,6])
