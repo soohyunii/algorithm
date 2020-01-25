@@ -1,5 +1,5 @@
 '''
-연결되어 있는 모든 친구들의 리스트를 뽑습니다. 
+연결되어 있는 모든 친구들의 리스트를 뽑고 친밀도를 계산합니다.
 '''
 
 connection = {
@@ -19,15 +19,15 @@ def find_all_connection(con, name):
     qu = []
     done = set()
 
-    qu.append(name)
+    qu.append((name,0))
     done.add(name)
 
     while qu:
-        x = qu.pop(0)
-        print(x)
+        (x,y) = qu.pop(0)
+        print(x,y)
         for friend_name in con[x]:
             if friend_name not in done :
-                qu.append(friend_name)
+                qu.append((friend_name,y+1))
                 done.add(friend_name)
 
 
