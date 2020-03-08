@@ -23,29 +23,16 @@ vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문�
 예제 #3
 mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
 '''
-def solution(participant, completion):
-    participant = sorted(participant)
-    completion = sorted(completion)
-    for i in participant:
-        
-
-'''
-
 
 def solution(participant, completion):
     participant = sorted(participant)
     completion = sorted(completion)
-    list(map(lambda x:participant.remove(x), completion))
-    return ''.join(participant)
-
-
-
-def solution(participant, completion):
-    if len(participant)>=1 and len(participant)<100000 and len(participant)-1==len(completion):
-        list(map(lambda x:participant.remove(x), completion))
-        return ''.join(participant)
-    else:
-        return '제한사항 위반'
-'''        
+    for i in range(0,len(completion),1):
+        if participant[i] != completion[i]:
+            return participant[i]
+        elif i == len(completion)-1:
+            return participant[i+1]
+               
 
 print(solution(['leo', 'kiki', 'eden'],['kiki', 'eden']))
+print(solution(	["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]))
