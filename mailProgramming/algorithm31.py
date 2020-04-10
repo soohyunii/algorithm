@@ -9,27 +9,13 @@ Input: A = { 7, 3, 2, 5, 8 }, s = 14
 Output: Yes (7, 2, 5)
 '''
 
-inarr =  input("Input : ").split(",")
-inarr =  list(map(lambda x:int(x),inarr))
-inum =  int(input("s : "))
-
-def findS(arr,s):
-    minum = min(arr)
-    snum = sum(arr)
-    if minum > s :
-        return "No, s is less than min"
-    elif snum < s :
-        return "No, s is more than sum"
-    else :
-        tempArr = sorted(arr, reverse=True)
-        def recursive(len(tempArr)):
-            if s == 0 :
-                return "Yes"
-            elif s < minum :
-                
-            
-                    
+import itertools
 
 
+inarr = input("Input : ").split(",")
+#inarr = list(map(lambda x:int(x), inarr))
+innum = int(input("s = "))
 
-print(findS(inarr,inum))
+
+print(list(map(','.join, itertools.combinations(inarr,3))))
+print(list(map(','.join, itertools.permutations(inarr,3))))
