@@ -24,20 +24,42 @@ def algor(mat,cost):
     start = mat[0][0]
     end = mat[len(mat)-1][len(mat[0])-1]
     sum = []
-    matrix = []
 
     sum.append(start)
+    
+    matrix = {}
 
-    '''
+    for i in range(0,len(mat)):
+        for j in range(0,len(mat[0])):
+            if i == len(mat)-1 and j == len(mat[0])-1:
+                matrix[i,j] = [0,0]
+            elif i == len(mat)-1:
+                matrix[i,j] = [0,mat[i][j+1]]
+            elif j == len(mat[0])-1:
+                matrix[i,j] = [mat[i+1][j],0]
+            else:
+                matrix[i,j] = [mat[i+1][j],mat[i][j+1]]
+    return matrix
+    
+
+mat =  [[4, 7, 1, 6]
+              ,[5, 7, 3, 9]
+              ,[3, 2, 1, 2]
+              ,[7, 1, 6, 3]]
+print(algor(mat,25))
+
+    
+
+'''
     matrix=딕셔너리에 각 원소의 (i, j+1) , (i+1, j) 값을 입력한다.
     ex) {4: [7, 5], 7: [1, 7]}
     이런식으로 matrix를 완성하면 모두의 알고리즘에서 배웠던 미로찾기 공식을
     이용해서 푼다.
     
-    '''
+'''
         
 
-    
+'''
 
     if (len(mat)-1) > (len(mat[0])-1):
         max = len(mat)-1
@@ -50,7 +72,7 @@ def algor(mat,cost):
         while sum<cost:
             
         
-
+'''
     
 
     
