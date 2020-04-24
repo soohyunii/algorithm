@@ -21,13 +21,18 @@ Output: 2 (두 가지 경로는 4-7-1-3-1-6-3, 4-5-7-3-1-2-3)
 '''
 
 def algor(mat,cost):
-    start = mat[0][0]
-    end = mat[len(mat)-1][len(mat[0])-1]
-    sum = []
+    #start = mat[0][0]
+    #end = mat[len(mat)-1][len(mat[0])-1]
+    #sum = []
 
-    sum.append(start)
+    #sum.append(start)
     
     matrix = {}
+    sumArr = []
+    loadArr = [] 
+
+    sumArr.append(mat[0][0])
+    loadArr.append((0,0))
 
     for i in range(0,len(mat)):
         for j in range(0,len(mat[0])):
@@ -39,7 +44,11 @@ def algor(mat,cost):
                 matrix[i,j] = [mat[i+1][j],0]
             else:
                 matrix[i,j] = [mat[i+1][j],mat[i][j+1]]
-    return matrix
+    while sumArr:
+        p = loadArr.pop(0)
+        v = p[-1]
+        if sum[sumArr]>cost:
+            
     
 
 mat =  [[4, 7, 1, 6]
