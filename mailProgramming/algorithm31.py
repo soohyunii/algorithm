@@ -13,9 +13,17 @@ import itertools
 
 
 inarr = input("Input : ").split(",")
-#inarr = list(map(lambda x:int(x), inarr))
+inarr = list(map(lambda x:int(x),inarr))
 innum = int(input("s = "))
 
 
-print(list(map(','.join, itertools.combinations(inarr,3))))
-print(list(map(','.join, itertools.permutations(inarr,3))))
+def algor(inarr,innum):
+    combi = []
+    for i in range(1,len(inarr)+1):
+        v = list(itertools.combinations(inarr,i))
+        for j in range(0,len(v)):
+            if sum(v[j]) == innum:
+                combi.append(v[j])
+    return combi
+
+print(algor(inarr,innum))

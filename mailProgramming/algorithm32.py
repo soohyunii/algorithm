@@ -44,11 +44,14 @@ def algor(mat,cost):
                 matrix[i,j] = [mat[i+1][j],0]
             else:
                 matrix[i,j] = [mat[i+1][j],mat[i][j+1]]
+    return matrix
+    '''
     while sumArr:
         p = loadArr.pop(0)
         v = p[-1]
         if sum[sumArr]>cost:
-            
+            print()
+    '''     
     
 
 mat =  [[4, 7, 1, 6]
